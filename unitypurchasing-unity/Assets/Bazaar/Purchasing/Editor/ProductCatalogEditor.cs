@@ -23,7 +23,8 @@ namespace UnityEditor.Purchasing
             MacAppStore.Name,
             WindowsStore.Name,
             UDP.Name,
-            Cafebazaar.Name
+            Cafebazaar.Name,
+            Myket.Name
         };
 
         /// <summary>

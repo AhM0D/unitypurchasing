@@ -54,6 +54,17 @@ namespace UnityEngine.Purchasing
                         return new AndroidJavaStore(instance);
                     }
 
+                case AppStore.Myket:
+                    using (var pluginClass = new AndroidJavaClass("ir.myket.billing.MyketPurchasing"))
+                    {
+                        // Switch Android callbacks to the scripting thread, via ScriptingUnityCallback.
+                        var proxy = new JavaBridge(new ScriptingUnityCallback(callback, util));
+                        var instance = pluginClass.CallStatic<AndroidJavaObject>("instance", proxy);
+                        // Hook up our myket specific functionality.
+                        var extensions = new MyketStoreExtensions(instance);
+                        return new AndroidJavaStore(instance);
+                    }
+
                 case AppStore.UDP:
                     {
                         Type udpIapBridge = UdpIapBridgeInterface.GetClassType();

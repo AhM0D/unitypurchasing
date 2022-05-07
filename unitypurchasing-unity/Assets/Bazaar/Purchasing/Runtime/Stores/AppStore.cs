@@ -46,6 +46,11 @@
         Cafebazaar,
 
         /// <summary>
+        /// Myket App Store.
+        /// </summary>
+        Myket,
+
+        /// <summary>
         /// A fake store used for testing and Play-In-Editor.
         /// </summary>
         fake
